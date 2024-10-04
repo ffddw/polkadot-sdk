@@ -160,7 +160,7 @@ impl<RA, Block: traits::Block, Storage> OffchainWorkers<RA, Block, Storage> {
 				"offchain-worker".into(),
 				num_cpus::get(),
 			)),
-			shared_http_client: api::SharedClient::new(),
+			shared_http_client: api::SharedClient::new().unwrap(),
 			enable_http_requests,
 			keystore,
 			offchain_db: offchain_db.map(OffchainDb::new),
